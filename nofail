@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# author: Longhao.Chen <Longhao.Chen@outlook.com>
+# https://github.com/Longhao-Chen/nofail
+
+while true; do
+	if $*; then
+		break
+	fi
+done
