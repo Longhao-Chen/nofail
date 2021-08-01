@@ -3,8 +3,43 @@
 # author: Longhao.Chen <Longhao.Chen@outlook.com>
 # https://github.com/Longhao-Chen/nofail
 
+printHelp() {
+	echo "nofail v0.0.1"
+	echo "usage: $0 [-h] [-?] [-s sleep] [-r max_retry] shell_command"
+	echo "	-h show this help"
+	echo "	-? show this help"
+	echo "	[-s sleep] Command failure retry interval. Default: 1"
+	echo "	[-r max_retry] Maximum number of retries. 0 is infinite retry. Default: 0"
+	echo ""
+	echo "Author: Longhao.Chen <Longhao.Chen@outlook.com>"
+	echo "Issues: https://github.com/Longhao-Chen/nofail/issues"
+	exit 1
+}
+
+# default value
+sleep_time=1
+max_retry=0 # 0 is infinite retry
+
+# Parse parameters
+while getopts "hm:?m:s:r" arg; do
+	case $arg in
+	h) printHelp ;;
+	s) sleep_time=$OPTARG ;;
+	r) max_retry=$OPTARG ;;
+	?) printHelp ;;
+	esac
+done
+shift $(($OPTIND - 1))
+
+retry=0
 while true; do
 	if $*; then
-		break
+		exit 1
 	fi
+	retry=$((${retry} + 1))
+	if [ ${retry} == ${max_retry} ]; then
+		echo "Fail. Retry ${retry}."
+		exit 0
+	fi
+	sleep ${sleep_time}
 done
