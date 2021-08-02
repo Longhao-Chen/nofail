@@ -4,7 +4,7 @@
 # https://github.com/Longhao-Chen/nofail
 
 printHelp() {
-	echo "nofail v0.0.1"
+	echo "nofail v1.0.0"
 	echo "usage: $0 [-h] [-?] [-s sleep] [-r max_retry] shell_command"
 	echo "	-h show this help"
 	echo "	-? show this help"
@@ -38,8 +38,9 @@ while true; do
 	fi
 	retry=$((${retry} + 1))
 	if [ ${retry} == ${max_retry} ]; then
-		echo "Fail. Retry ${retry}."
+		echo "Exit. Retried ${retry}."
 		exit 0
 	fi
+	echo "Fail. Retried ${retry}."
 	sleep ${sleep_time}
 done
