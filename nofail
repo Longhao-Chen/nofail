@@ -4,7 +4,7 @@
 # https://github.com/Longhao-Chen/nofail
 
 printHelp() {
-	echo "nofail v1.0.0"
+	echo "nofail v1.0.1"
 	echo "usage: $0 [-h] [-?] [-s sleep] [-r max_retry] shell_command"
 	echo "	-h show this help"
 	echo "	-? show this help"
