@@ -1,0 +1,25 @@
+{
+  "name": "shell-nofail",
+  "version": "1.0.0",
+  "description": "Run the shell command until successful.",
+  "bin": {
+    "shell-nofail": "nofail"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Longhao-Chen/nofail.git"
+  },
+  "keywords": [
+    "shell",
+    "cli"
+  ],
+  "author": "Longhao.Chen <Longhao.Chen@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Longhao-Chen/nofail/issues"
+  },
+  "homepage": "https://github.com/Longhao-Chen/nofail#readme"
+}
