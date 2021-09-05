@@ -4,7 +4,7 @@
 # https://github.com/Longhao-Chen/nofail
 
 printHelp() {
-	echo "nofail v1.0.1"
+	echo "nofail v1.0.2"
 	echo "usage: $0 [-h] [-?] [-s sleep] [-r max_retry] shell_command"
 	echo "	-h show this help"
 	echo "	-? show this help"
@@ -21,7 +21,7 @@ sleep_time=1
 max_retry=0 # 0 is infinite retry
 
 # Parse parameters
-while getopts "hm:?m:s:r" arg; do
+while getopts "hmr:?m:s:r" arg; do
 	case $arg in
 	h) printHelp ;;
 	s) sleep_time=$OPTARG ;;
